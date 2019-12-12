@@ -107,7 +107,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="OfisEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="OfisEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Departman" EntityType="Self.Departman" />
           <EntitySet Name="Personel" EntityType="Self.Personel" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -121,7 +121,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="OfisModelStoreContainer" CdmEntityContainer="OfisEntities">
+        <EntityContainerMapping StorageEntityContainer="OfisModelStoreContainer" CdmEntityContainer="OfisEntities1">
           <EntitySetMapping Name="Departman">
             <EntityTypeMapping TypeName="OfisModel.Departman">
               <MappingFragment StoreEntitySet="Departman">
