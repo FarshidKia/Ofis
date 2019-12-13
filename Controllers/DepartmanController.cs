@@ -16,5 +16,14 @@ namespace Ofis_ISE309.Controllers
             var model = db.Departman.ToList();
             return View(model);
         }
+        public ActionResult Yeni(String DepartmanAdi)
+        {
+            var Departman = new Departman();
+            Departman.Ad = DepartmanAdi;
+            db.Departman.Add(Departman);
+            db.SaveChanges();
+            return View();
+
+        }
     }
 }
