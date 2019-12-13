@@ -1,4 +1,4 @@
-﻿
+﻿@model Ofis_ISE309.Models.EntityFramework.Departman
 @{
     ViewBag.Title = "Yeni";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,11 +6,20 @@
 
 <h2>Yeni</h2>
 
-<form>
+@*@<form method="post">
+        <div class="form-group">
+            <label>Departman Adı</label>
+            <input type="text"name="Ad" class="form-control" />
+
+        </div>
+        <button type="submit" class="btn btn-success">Ekle</button>
+    </form>*@
+@using (Html.BeginForm("Yeni", "Departman", FormMethod.Post))
+{
     <div class="form-group">
-        <label>Departman Adı</label>
-        <input type="text"name="DepartmanAdi" class="form-control" />
+        @Html.LabelFor(m => m.Ad)
+        @Html.TextBoxFor(m => m.Ad, new { @class = "form-control" })
 
     </div>
     <button type="submit" class="btn btn-success">Ekle</button>
-</form>
+}
