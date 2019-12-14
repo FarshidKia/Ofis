@@ -43,6 +43,7 @@ namespace Ofis_ISE309.Controllers
             if (SilinecekDepartman == null)
                 return HttpNotFound();
             db.Departman.Remove(SilinecekDepartman);
+            //Entity validation hata tesbiti
             db.SaveChanges();
             return RedirectToAction("Index");
         }
