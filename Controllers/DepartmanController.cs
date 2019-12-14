@@ -19,7 +19,7 @@ namespace Ofis_ISE309.Controllers
         [HttpGet]
         public ActionResult Yeni()
         {
-            return View();
+            return View("DepartmanForm");
 
         }
         [HttpPost]
@@ -29,6 +29,22 @@ namespace Ofis_ISE309.Controllers
             db.SaveChanges();
             return RedirectToAction("Index", "Departman");
 
+        }
+        public ActionResult Guncelle(int id)
+        {
+            var model = db.Departman.Find(id);
+            if (model == null)
+                return HttpNotFound();
+            return View("DepartmanForm",model);
+        }
+        public ActionResult Sil(int id)
+        {
+            var SilinecekDepartman = db.Departman.Find(id);
+            if (SilinecekDepartman == null)
+                return HttpNotFound();
+            db.Departman.Remove(SilinecekDepartman);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
