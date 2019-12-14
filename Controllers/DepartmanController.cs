@@ -23,7 +23,7 @@ namespace Ofis_ISE309.Controllers
 
         }
         [HttpPost]
-        public ActionResult Yeni(Departman departman)
+        public ActionResult Kaydet(Departman departman)
         {
             db.Departman.Add(departman);
             db.SaveChanges();
