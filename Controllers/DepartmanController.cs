@@ -1,6 +1,8 @@
 ﻿using Ofis_ISE309.Models.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -25,9 +27,46 @@ namespace Ofis_ISE309.Controllers
         [HttpPost]
         public ActionResult Kaydet(Departman departman)
         {
-            db.Departman.Add(departman);
-            db.SaveChanges();
+            if (departman.Id == 0)
+            {
+                db.Departman.Add(departman);
+            }
+            else
+            {
+                var GuncellenecekDepartman = db.Departman.Find(departman.Id);
+                if (GuncellenecekDepartman == null)
+                {
+                    return HttpNotFound();
+                }
+                GuncellenecekDepartman.Ad = departman.Ad;
+            }
+            //db.Departman.Add(departman);
+
+            try {
+                db.SaveChanges();
+             
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (DbEntityValidationResult item in ex.EntityValidationErrors)
+                {
+                    // Get entry
+
+                    DbEntityEntry entry = item.Entry;
+                    string entityTypeName = entry.Entity.GetType().Name;
+
+                    // Display or log error messages
+
+                    foreach (DbValidationError subItem in item.ValidationErrors)
+                    {
+                        string message = string.Format("Error '{0}' occurred in {1} at {2}",
+                                 subItem.ErrorMessage, entityTypeName, subItem.PropertyName);
+                        Console.WriteLine(message);
+                    }
+                }
+            }
             return RedirectToAction("Index", "Departman");
+
 
         }
         public ActionResult Guncelle(int id)
