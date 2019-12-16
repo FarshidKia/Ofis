@@ -8,7 +8,7 @@ using System.Data.Entity;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
-
+using System.Web.WebPages.Html;
 
 namespace Ofis_ISE309.Controllers
 {
@@ -28,11 +28,17 @@ namespace Ofis_ISE309.Controllers
 
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Kaydet(Departman departman)
         {
-            db.Departman.Add(departman);
-            db.SaveChanges();
-            return RedirectToAction("Index", "Departman");
+            if (ModelState.IsValid)
+            {
+                db.Departman.Add(departman);
+                db.SaveChanges();
+                return RedirectToAction("Index", "Departman");
+            }
+            return View(departman);
+           
 
         }
         public ActionResult Guncelle(int id)
