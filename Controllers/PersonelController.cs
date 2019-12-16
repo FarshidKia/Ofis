@@ -20,5 +20,10 @@ namespace Ofis_ISE309.Controllers
             var model = db.Personel.ToList();
             return View(model);
         }
+        public ActionResult Yeni()
+        {
+            return View("PersonelForm");
+        }
     }
+    
 }

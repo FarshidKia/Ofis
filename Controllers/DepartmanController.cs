@@ -30,7 +30,20 @@ namespace Ofis_ISE309.Controllers
        [HttpPost]
         public ActionResult Kaydet(Departman departman)
         {
-            db.Departman.Add(departman);
+            if (departman.Id == 0)
+            {
+                db.Departman.Add(departman);
+            }
+            else
+            {
+                var GuncellenecekDepartman = db.Departman.Find(departman.Id);
+                if (GuncellenecekDepartman == null)
+                {
+                    return HttpNotFound();
+                }
+                GuncellenecekDepartman.Ad = departman.Ad;
+            }
+            //db.Departman.Add(departman);
             db.SaveChanges();
             return RedirectToAction("Index", "Departman");
 
