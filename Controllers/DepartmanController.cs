@@ -27,20 +27,15 @@ namespace Ofis_ISE309.Controllers
             return View("DepartmanForm");
 
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+       [HttpPost]
         public ActionResult Kaydet(Departman departman)
         {
-            if (ModelState.IsValid)
-            {
-                db.Departman.Add(departman);
-                db.SaveChanges();
-                return RedirectToAction("Index", "Departman");
-            }
-            return View(departman);
-           
+            db.Departman.Add(departman);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Departman");
 
         }
+
         public ActionResult Guncelle(int id)
         {
             var model = db.Departman.Find(id);

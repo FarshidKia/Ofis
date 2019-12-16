@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h2>Personeller Listesi</h2>
 <table class="table table-bordered">
     <thead class="thead-dark">
@@ -16,9 +17,6 @@
             <th scope="col">DoğumTarihi</th>
             <th scope="col">Cinsiyet</th>
             <th scope="col">EvlilikDurumu</th>
-
-
-
         </tr>
     </thead>
     <tbody>
@@ -29,10 +27,10 @@
                 <td>@personel.Soyad</td>
                 <td>@personel.Departman.Ad</td>
                 <td>@(DateTime.Now.Year - personel.DogumTarihi.Value.Year)</td>
-                <td>@personel.Maas</td>
+                <td>@personel.Mass</td>
                 <td>@personel.DogumTarihi.Value.ToString("dd-MM-yyy")</td>
-                <td>@(personel.Cinsiyet==true?"Kadın":"Erkek")</td>
-                <td>@(personel.EvliMi==true?"Evli":"Bekar")</td>
+                <td>@(personel.Cinsiyet == true ? "Kadın" : "Erkek")</td>
+                <td>@(personel.EvliMi == true ? "Evli" : "Bekar")</td>
             </tr>
         }
 
