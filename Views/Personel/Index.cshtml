@@ -1,0 +1,41 @@
+﻿@model List<Ofis_ISE309.Models.EntityFramework.Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Personeller Listesi</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Departman</th>
+            <th>Yaş</th>
+            <th>Maaş</th>
+            <th>DoğumTarihi</th>
+            <th>Cinsiyet</th>
+            <th>EvlilikDurumu</th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var personel in Model)
+        {
+            <tr>
+                <td>@personel.Ad</td>
+                <td>@personel.Soyad</td>
+                <td>@personel.DepartmanId</td>
+                <td>@(DateTime.Now.Year - personel.DogumTarihi.Value.Year)</td>
+                <td>@personel.Mass</td>
+                <td>@personel.DogumTarihi.Value.ToString("dd-MM-yyy")</td>
+                <td>@(personel.Cinsiyet==true?"Kadın":"Erkek")</td>
+                <td>@(personel.EvliMi==true?"Evli":"Bekar")</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
