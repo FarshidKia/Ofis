@@ -14,7 +14,7 @@ namespace Ofis_ISE309.Controllers
 {
     public class DepartmanController : Controller
     {
-        OfisEntities1 db = new OfisEntities1();
+        OfisEntities2 db = new OfisEntities2();
         // GET: Departman
         public ActionResult Index()
         {
