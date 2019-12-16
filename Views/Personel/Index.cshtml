@@ -6,16 +6,16 @@
 
 <h2>Personeller Listesi</h2>
 <table class="table table-bordered">
-    <thead>
+    <thead class="thead-dark">
         <tr>
-            <th>Ad</th>
-            <th>Soyad</th>
-            <th>Departman</th>
-            <th>Yaş</th>
-            <th>Maaş</th>
-            <th>DoğumTarihi</th>
-            <th>Cinsiyet</th>
-            <th>EvlilikDurumu</th>
+            <th scope="col">Ad</th>
+            <th scope="col">Soyad</th>
+            <th scope="col">Departman</th>
+            <th scope="col">Yaş</th>
+            <th scope="col">Maaş</th>
+            <th scope="col">DoğumTarihi</th>
+            <th scope="col">Cinsiyet</th>
+            <th scope="col">EvlilikDurumu</th>
 
 
 
@@ -27,7 +27,7 @@
             <tr>
                 <td>@personel.Ad</td>
                 <td>@personel.Soyad</td>
-                <td>@personel.DepartmanId</td>
+                <td>@personel.Departman.Ad</td>
                 <td>@(DateTime.Now.Year - personel.DogumTarihi.Value.Year)</td>
                 <td>@personel.Mass</td>
                 <td>@personel.DogumTarihi.Value.ToString("dd-MM-yyy")</td>

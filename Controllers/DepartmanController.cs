@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+
 
 namespace Ofis_ISE309.Controllers
 {
