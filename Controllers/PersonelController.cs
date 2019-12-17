@@ -33,6 +33,7 @@ namespace Ofis_ISE309.Controllers
         
             return View("PersonelForm",model);
         }
+        [ValidateAntiForgeryToken]
         public ActionResult kaydet(Personel personel)
         {
             if (!ModelState.IsValid)

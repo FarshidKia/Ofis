@@ -28,6 +28,7 @@ namespace Ofis_ISE309.Controllers
 
         }
        [HttpPost]
+       [ValidateAntiForgeryToken]
         public ActionResult Kaydet(Departman departman)
         {
             if (!ModelState.IsValid)
