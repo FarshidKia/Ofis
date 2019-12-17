@@ -12,10 +12,11 @@ using System.Web.WebPages.Html;
 
 namespace Ofis_ISE309.Controllers
 {
+    
     public class DepartmanController : Controller
     {
         OfisEntities4 db = new OfisEntities4();
-        // GET: Departman
+        [Authorize]
         public ActionResult Index()
         {
             var model = db.Departman.ToList();

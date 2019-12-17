@@ -2,12 +2,13 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">Personel Yönetim Sistemi</a>
+            Merhaba s@HttpContext.Current.User.Identity.Name
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="/Departman">Departmanlar</a></li>
             <li><a href="/Personel">Personeller</a></li>
-            <li><a href="#">Giriş Yap</a></li>
-            <li><a href="#">Kayıt Ol</a></li>
+            <li><a href="Security/Logout">Çıkış Yap</a></li>
+            
         </ul>
     </div>
 </nav> 

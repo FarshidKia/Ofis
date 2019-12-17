@@ -10,6 +10,7 @@ using Ofis_ISE309.Models.EntityFramework;
 
 namespace Ofis_ISE309.Controllers
 {
+    
     public class KullanicisController : Controller
     {
         private OfisEntities4 db = new OfisEntities4();

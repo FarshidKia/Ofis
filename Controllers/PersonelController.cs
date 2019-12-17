@@ -12,6 +12,7 @@ using Ofis_ISE309.ViewModels;
 
 namespace Ofis_ISE309.Controllers
 {
+    
     public class PersonelController : Controller
     {
         // GET: Personel
