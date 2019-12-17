@@ -12,7 +12,7 @@ using System.Web.WebPages.Html;
 
 namespace Ofis_ISE309.Controllers
 {
-    
+    [Authorize(Roles = "A,U")]
     public class DepartmanController : Controller
     {
         OfisEntities4 db = new OfisEntities4();

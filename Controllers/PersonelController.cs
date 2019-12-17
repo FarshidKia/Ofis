@@ -12,16 +12,18 @@ using Ofis_ISE309.ViewModels;
 
 namespace Ofis_ISE309.Controllers
 {
-    
+    [Authorize(Roles = "A,U")]
     public class PersonelController : Controller
     {
         // GET: Personel
+        
         OfisEntities4 db = new OfisEntities4();
         public ActionResult Index()
         {
             var model = db.Personel.ToList();
             return View(model);
         }
+        
         public ActionResult Yeni()
 
         {
