@@ -11,15 +11,18 @@
     <title>_Layout</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/Ofis.css" rel="stylesheet" />
+    
 </head>
 <body>
     @Html.Partial("_Navbar")
-    
+
     <div class="container">
         @RenderBody()
     </div>
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("scripts",false)
+  
 
 </body>
 </html>
