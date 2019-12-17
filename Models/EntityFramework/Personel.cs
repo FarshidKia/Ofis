@@ -9,21 +9,32 @@
 
 namespace Ofis_ISE309.Models.EntityFramework
 {
+    using DocumentFormat.OpenXml.Wordprocessing;
+    using Nest;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Personel
     {
         public int Id { get; set; }
+        [Display(Name="Departman Adý")]
+
         public Nullable<int> DepartmanId { get; set; }
         public string Ad { get; set; }
         public string Soyad { get; set; }
+        [Display(Name = "Yaþ")]
         public Nullable<byte> Yas { get; set; }
+        [Display(Name = "Maaþ")]
         public Nullable<short> Mass { get; set; }
+        [Display(Name = "Doðum Tarihi")]
+
         public Nullable<System.DateTime> DogumTarihi { get; set; }
         public Nullable<bool> Cinsiyet { get; set; }
+        [Display(Name = "Evlilik Durumu")]
         public Nullable<bool> EvliMi { get; set; }
-    
+       
+
         public virtual Departman Departman { get; set; }
     }
 }
