@@ -26,7 +26,8 @@ namespace Ofis_ISE309.Controllers
         {
             var model = new PersonelFormViewModel()
             {
-                departmanlar = db.Departman.ToList()
+                departmanlar = db.Departman.ToList(),
+                Personel=new Personel()
             };
       
         
@@ -34,7 +35,16 @@ namespace Ofis_ISE309.Controllers
         }
         public ActionResult kaydet(Personel personel)
         {
-            if (personel.Id == 0)
+            if (!ModelState.IsValid)
+            {
+                var model = new PersonelFormViewModel()
+                {
+                    departmanlar = db.Departman.ToList(),
+                    Personel=personel
+                };
+                return View("PersonelForm",model);
+            }
+            if (personel.Id == 0) //ekleme işlemi
             {
                 db.Personel.Add(personel);
             }
