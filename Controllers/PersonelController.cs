@@ -15,7 +15,7 @@ namespace Ofis_ISE309.Controllers
     public class PersonelController : Controller
     {
         // GET: Personel
-        OfisEntities2 db = new OfisEntities2();
+        OfisEntities4 db = new OfisEntities4();
         public ActionResult Index()
         {
             var model = db.Personel.ToList();

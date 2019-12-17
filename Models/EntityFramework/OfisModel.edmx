@@ -12,6 +12,15 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ad" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="2" Nullable="false" />
+        </EntityType>
         <EntityType Name="Personel">
           <Key>
             <PropertyRef Name="Id" />
@@ -50,6 +59,7 @@
         </Association>
         <EntityContainer Name="OfisModelStoreContainer">
           <EntitySet Name="Departman" EntityType="Self.Departman" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personel" EntityType="Self.Personel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Personel_Departman" Association="Self.FK_Personel_Departman">
@@ -69,6 +79,15 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Personel" Relationship="Self.FK_Personel_Departman" FromRole="Departman" ToRole="Personel" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Personel">
           <Key>
@@ -107,8 +126,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="OfisEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="OfisEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Departman" EntityType="Self.Departman" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" />
           <EntitySet Name="Personel" EntityType="Self.Personel" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <AssociationSet Name="FK_Personel_Departman" Association="Self.FK_Personel_Departman">
@@ -121,12 +141,22 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="OfisModelStoreContainer" CdmEntityContainer="OfisEntities2">
+        <EntityContainerMapping StorageEntityContainer="OfisModelStoreContainer" CdmEntityContainer="OfisEntities4">
           <EntitySetMapping Name="Departman">
             <EntityTypeMapping TypeName="OfisModel.Departman">
               <MappingFragment StoreEntitySet="Departman">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Ad" ColumnName="Ad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanici">
+            <EntityTypeMapping TypeName="OfisModel.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanici">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

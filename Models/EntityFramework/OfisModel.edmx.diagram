@@ -4,10 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="95b25ad5ee2549e4a529e27834ea691c" Name="Diagram1">
+      <Diagram DiagramId="0de5bef6ad9946f593cb7409f689158b" Name="Diagram1">
         <EntityTypeShape EntityType="OfisModel.Departman" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OfisModel.Kullanici" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OfisModel.Personel" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="OfisModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OfisModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="OfisModel.FK_Personel_Departman" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

@@ -13,10 +13,10 @@ namespace Ofis_ISE309.Models.EntityFramework
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class OfisEntities2 : DbContext
+    public partial class OfisEntities4 : DbContext
     {
-        public OfisEntities2()
-            : base("name=OfisEntities2")
+        public OfisEntities4()
+            : base("name=OfisEntities4")
         {
         }
     
@@ -26,6 +26,7 @@ namespace Ofis_ISE309.Models.EntityFramework
         }
     
         public virtual DbSet<Departman> Departman { get; set; }
+        public virtual DbSet<Kullanici> Kullanici { get; set; }
         public virtual DbSet<Personel> Personel { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }

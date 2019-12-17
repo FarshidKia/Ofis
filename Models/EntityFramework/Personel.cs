@@ -9,41 +9,21 @@
 
 namespace Ofis_ISE309.Models.EntityFramework
 {
-    using DocumentFormat.OpenXml.Wordprocessing;
-    using Nest;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using Name = DocumentFormat.OpenXml.Wordprocessing.Name;
-
+    
     public partial class Personel
     {
         public int Id { get; set; }
-        [Display(Name="Departman Adý")]
-        [Required(ErrorMessage ="Lütfen bir departman seçiniz!")]
-
         public Nullable<int> DepartmanId { get; set; }
-        [Required (ErrorMessage ="Ad alaný zorunludur!")]
         public string Ad { get; set; }
-        [Required(ErrorMessage = "Soyad alaný zorunludur!")]
         public string Soyad { get; set; }
-        [Display(Name = "Yaþ")]
         public Nullable<byte> Yas { get; set; }
-        [Display(Name = "Maaþ")]
-        [Required(ErrorMessage ="Maaþ alaný zorunludur!")]
-        [Range(2500,10000, ErrorMessage ="Maaþ alaný 2500 ile 10000 arasýnda olmalýdýr!")]
         public Nullable<short> Mass { get; set; }
-        [Display(Name = "Doðum Tarihi")]
-        [Required(ErrorMessage ="Lütfen doðum tarihinizi seçiniz1")]
-
         public Nullable<System.DateTime> DogumTarihi { get; set; }
-        [Required(ErrorMessage ="Lütfen cinsiyetinizi belirtiniz!")]
         public Nullable<bool> Cinsiyet { get; set; }
-        [Display(Name = "Evlilik Durumu")]
-        [Required(ErrorMessage ="Lütfen medeni durumunuzu belirtiniz!")]
         public Nullable<bool> EvliMi { get; set; }
-       
-
+    
         public virtual Departman Departman { get; set; }
     }
 }
