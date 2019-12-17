@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Configuration;
+using Ofis_ISE309.ViewModels;
 
 namespace Ofis_ISE309.Controllers
 {
@@ -21,9 +22,51 @@ namespace Ofis_ISE309.Controllers
             return View(model);
         }
         public ActionResult Yeni()
+
         {
-            return View("PersonelForm");
+            var model = new PersonelFormViewModel()
+            {
+                departmanlar = db.Departman.ToList()
+            };
+      
+        
+            return View("PersonelForm",model);
         }
+        public ActionResult kaydet(Personel personel)
+        {
+            if (personel.Id == 0)
+            {
+                db.Personel.Add(personel);
+            }
+            else //Guncelle
+            {
+                db.Entry(personel).State = System.Data.Entity.EntityState.Modified;
+            }
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult Guncelle(int id)
+        {
+            var model = new PersonelFormViewModel()
+            {
+                departmanlar = db.Departman.ToList(),
+                Personel = db.Personel.Find(id)
+            };
+
+            return View("PersonelForm",model);
+        }
+        public ActionResult Sil(int id)
+        {
+            var SilinecekPersonel = db.Personel.Find(id);
+            if (SilinecekPersonel == null)
+            {
+                return HttpNotFound();
+            }
+            db.Personel.Remove(SilinecekPersonel);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
     
 }
