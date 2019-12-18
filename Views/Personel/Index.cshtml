@@ -31,7 +31,7 @@
             <td>@personel.DepartmanId</td>
             <td>@personel.Yas</td>
             <td>@personel.Mass</td>
-            <td>@personel.DogumTarihi.Value.ToString("dd-MM-yyyy")</td>
+            <td>@personel.DogumTarihi</td> @*//.Value.ToString("dd-MM-yyyy")*@
             <td>@(personel.Cinsiyet == true ? "Kadın" : "Erkek")</td>
             <td>@(personel.EvliMi == true ? "Evli" : "Bekar")</td>
             <td>@Html.ActionLink("Güncelle", "Guncelle", new { id = personel.Id }, new { @class = "btn btn-success" })</td>

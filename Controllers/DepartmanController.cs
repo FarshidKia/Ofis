@@ -17,6 +17,7 @@ namespace Ofis_ISE309.Controllers
     {
         OfisEntities4 db = new OfisEntities4();
         [Authorize]
+        
         public ActionResult Index()
         {
             var model = db.Departman.ToList();
